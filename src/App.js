@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, UserRegister, RestaurantMenu, Restaurants } from "./pages";
+import { Navbar, Footer } from "./components";
 
 function App() {
+  const pathname = window.location.pathname;
+  console.log(pathname);
+  const noSignUp =
+    "/login" ||
+    "/signup" ||
+    "/forgot-password" ||
+    "/vendorregister" ||
+    "/vendorlogin" ||
+    "/userregister" ||
+    "/userlogin";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/userregister" element={<UserRegister />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/restaurantmenu" element={<RestaurantMenu />} />
+      </Routes>
+      {noSignUp.includes(pathname) ? <Footer /> : <div></div>}
+    </BrowserRouter>
   );
 }
 
