@@ -1,0 +1,79 @@
+.homepage {
+  background-color: #f4f4f8;
+  font-family: "Montserrat";
+}
+
+.hero {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.hero .title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 37px;
+  /* identical to box height */
+
+  letter-spacing: 0.02em;
+
+  /* Text color */
+
+  color: #1e1e1e;
+
+  opacity: 0.7;
+}
+.hero-sec {
+  font-family: "Montserrat";
+}
+.hero-sec .title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 49px;
+  text-transform: capitalize;
+  color: #1e1e1e;
+}
+
+.hero-sec .sub-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #1e1e1e;
+  margin-bottom: 13px;
+}
+
+.product-sig {
+}
+
+.product-sig .title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 49px;
+  color: #1e1e1e;
+  text-decoration-line: underline;
+  text-align: center;
+}
+
+.about .title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 49px;
+  text-decoration: underline;
+  color: #1e1e1e;
+}
+
+.about p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+
+  /* Text color */
+
+  color: #1e1e1e;
+}
