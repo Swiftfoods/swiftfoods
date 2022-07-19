@@ -1,0 +1,21 @@
+.navbar {
+  height: 87px;
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 10px 5px 15px #e7e7eb;
+}
+
+.navbar a {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #1e1e1e;
+  opacity: 0.4;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  opacity: 1;
+  border-bottom: 1px solid #000;
+}
