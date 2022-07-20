@@ -1,7 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { Form } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 import styled from "styled-components";
-import { FileInput, Button } from "../../components";
+import { FormInput, Button } from "../../components";
+import { register } from "../../actions/userActions";
+import "react-toastify/dist/ReactToastify.css";
 
 const Left = styled.div`
   flex: 1;
@@ -38,8 +43,48 @@ const Title = styled.h1`
 `;
 
 const UserRegister = () => {
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, error, userInfo } = userRegister;
+
+  const redirect = window.location.search
+    ? window.location.search.split("=")[1]
+    : "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    //Check if password and confirm password match
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match");
+      toast("Passwords do not match");
+      return;
+    } else {
+      setMessage(null);
+      // toast("Registration successful");
+      dispatch(register(first_name, last_name, email, phone, password));
+    }
+  };
+
   return (
     <div>
+      <ToastContainer />
       <div className="flex main_container">
         <Left id="image_hub">
           <ImgContainer />
@@ -47,60 +92,70 @@ const UserRegister = () => {
         <Right>
           <FormContainer>
             <Title>Sign Up</Title>
-            <div id="content_container">
-              <form id="myform2">
-                <FileInput
-                  inputLabel={"First name"}
-                  labelClass={"label"}
-                  type={"text"}
-                  inputId={"first_name"}
-                  registerId={"first_name"}
-                />
-                <FileInput
-                  inputLabel={"Last name"}
-                  labelClass={"label"}
-                  type={"text"}
-                  inputId={"last_name"}
-                  registerId={"last_name"}
-                />
-                <FileInput
-                  inputLabel={"Email adress"}
-                  labelClass={"label"}
-                  type={"text"}
-                  inputId={"email"}
-                  registerId={"email"}
-                />
-                <FileInput
-                  inputLabel={"Phone Number"}
-                  labelClass={"label"}
-                  type={"text"}
-                  inputId={"phone_number"}
-                  registerId={"phone_number"}
-                />
-                <FileInput
-                  inputLabel={"Password"}
-                  labelClass={"label"}
-                  type={"password"}
-                  inputId={"password"}
-                  registerId={"password"}
-                />
-                <FileInput
-                  inputLabel={"Confirm Password"}
-                  labelClass={"label"}
-                  type={"password"}
-                  inputId={"confirm_password"}
-                  registerId={"confirm_password"}
-                />
-                <Button
-                  children={"Sign Up"}
-                  className={"btn-primary"}
-                  type={"submit"}
-                  formId={"myform2"}
-                  linkTo={"/"}
-                />
-              </form>
-            </div>
+            <form onSubmit={submitHandler}>
+              <FormInput
+                label="First Name"
+                id="first_name"
+                type="text"
+                placeholder="First Name"
+                value={first_name}
+                onChange={(e) => setFirst_name(e.target.value)}
+              />
+
+              <FormInput
+                label="Last Name"
+                id="last_name"
+                type="text"
+                placeholder="Last Name"
+                value={last_name}
+                onChange={(e) => setLast_name(e.target.value)}
+              />
+
+              <FormInput
+                label="Email"
+                id="email"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <FormInput
+                label="Phone"
+                id="phone"
+                type="text"
+                placeholder="Phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+
+              <FormInput
+                label="Password"
+                id="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <FormInput
+                label="Confirm Password"
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+
+              <Button variant="primary" type="submit" className="btn-primary">
+                Sign Up
+              </Button>
+            </form>
           </FormContainer>
+
+          <div className="text-center">
+            <Link to="/login">Already have an account?</Link>
+          </div>
         </Right>
       </div>
     </div>
