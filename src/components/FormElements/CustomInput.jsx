@@ -14,6 +14,7 @@ const FileInput = ({
   children,
   className,
   labelClass,
+  onChange,
   ...rest
 }) => {
   return (
@@ -38,7 +39,12 @@ const FileInput = ({
             {...rest}
           />
         ) : (
-          <input type={inputType} required={required} {...rest} />
+          <input
+            type={inputType}
+            required={required}
+            {...rest}
+            onChange={onChange}
+          />
         )}
 
         {suffix && (
