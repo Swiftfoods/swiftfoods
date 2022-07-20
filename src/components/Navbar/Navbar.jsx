@@ -1,41 +1,56 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { BiUser } from "react-icons/bi";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const dropDown = "top-0";
+  const dropDown = "top-24";
   const goUp = "-top-24";
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  // const status = userInfo.status;
+  // console.log(status);
 
   const pathname = window.location.pathname;
   console.log(pathname);
   const noSignUp =
-    "/login" ||
-    "/signup" ||
-    "/forgot-password" ||
-    "/vendorregister" ||
-    "/vendorlogin" ||
-    "/userregister" ||
+    "/login" &&
+    "/signup" &&
+    "/forgot-password" &&
+    "/vendorregister" &&
+    "/vendorlogin" &&
+    "/userregister" &&
     "/userlogin";
+
+  pathname === noSignUp && console.log("no sign up");
   const userregister = pathname.includes("/user/register");
 
   return (
     <div className="navbar flex items-center justify-between w-full overflow-hidden">
       <div className="navbar-brand flex items-center w-3/4 relative">
-        <img
-          className="logo ml-8 mr-16 lg:mr-28"
-          src="./images/Logo.png"
-          alt="Logo"
-        />
+        <div className="ml-8 mr-16 lg:mr-28">
+          <Link to="/">
+            <img
+              className="logo ml-8 mr-16 lg:mr-28"
+              src="./images/Logo.png"
+              alt="Logo"
+            />
+          </Link>
+        </div>
         <nav className="header w-full">
           <ul className="flex justify-between">
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className="relative">
+              <div className="notification absolute w-2 h-2 rounded bg-green-600 -right-3"></div>
               <Link to="/cart">Cart</Link>
             </li>
             <li>
@@ -47,7 +62,17 @@ const Navbar = () => {
           </ul>
         </nav>
       </div>
-      {noSignUp.includes(pathname) ? (
+      {userInfo ? (
+        <div className={"flex mr-8 ml-6"}>
+          <Link to="/user/notification" className="w-8 h-8 mr-10 relative">
+            <div className="notification absolute w-2 h-2 rounded bg-green-600 right-0"></div>
+            <IoMdNotificationsOutline className="notification text-3xl" />
+          </Link>
+          <Link to="/user/profile" className="">
+            <BiUser className="user text-3xl" />
+          </Link>
+        </div>
+      ) : pathname !== "/login" && pathname !== "/userregister" ? (
         <Button
           children={"Sign Up"}
           className={
@@ -61,8 +86,9 @@ const Navbar = () => {
       ) : (
         <div></div>
       )}
+
       <div
-        className={`absolute right-0 bg-slate-700 transition-all duration-500  ${
+        className={`absolute right-2 bg-slate-700 transition-all duration-500 rounded-lg  ${
           !isOpen ? goUp : dropDown
         }`}
       >
