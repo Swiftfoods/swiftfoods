@@ -64,7 +64,7 @@ const Home = () => {
     <div className="homepage">
       <section className="hero px-8 flex justify-between">
         <div className="left_a mt-20">
-          <img src="./Images/Logo.png" alt="" />
+          <img src="./images/Logo.png" alt="" />
           <h1 className="pl-3 title mt-2.5">Tasty Food,Speedy Delivery</h1>
           <div className="w-52 ml-3 mt-5 pl-9 pr-6 py-4 bg-orange-600 rounded-xl text-white">
             <Link to="/login.html" className=" flex items-center text-lg">
@@ -84,7 +84,7 @@ const Home = () => {
             <Left className="">
               <RoundedImg
                 className="img_frame"
-                src="./Images/sizf4VPAqn.png"
+                src="./images/passion-one.png"
                 alt=""
               />
               <p className="sub-title">Quality Food</p>
@@ -98,7 +98,7 @@ const Home = () => {
             <Center className="div_b">
               <RoundedImg
                 className="img_frame"
-                src="./Images/image 6.png"
+                src="./images/passion-two.png"
                 alt=""
               />
               <p className="sub-title"> Food Delivery</p>
@@ -113,7 +113,7 @@ const Home = () => {
             <Right className="div_b">
               <RoundedImg
                 className="img_frame"
-                src="./Images/image 5.png"
+                src="./images/passion-three.png"
                 alt=""
               />
               <p className="sub-title"> Super Tasty</p>
