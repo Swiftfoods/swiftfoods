@@ -87,7 +87,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  width: 50%;
+  width: 100%;
   margin-bottom: 10px;
   font-weight: 400;
   font-size: 12px;
@@ -100,7 +100,7 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 40px;
   ${"" /* justify-content: center; */}
   ${"" /* padding: 30px 10px 20px 30px; */}
 `;
@@ -123,7 +123,7 @@ const Footer = () => {
           <Left className="">
             <Logo>
               <Link to="/">
-                <img alt="" src="./Images/Logo.png" />
+                <img alt="" src="./images/Logo.png" />
               </Link>
             </Logo>
           </Left>
@@ -132,9 +132,6 @@ const Footer = () => {
               <Title>Home</Title>
               <List>
                 <ListItem>
-                  <Link to="/">Home</Link>
-                </ListItem>
-                <ListItem>
                   <Link to="/">Menu</Link>
                 </ListItem>
                 <ListItem>
@@ -152,48 +149,30 @@ const Footer = () => {
               </List>
             </CenterItem>
             <CenterItem>
-              <Title>Home</Title>
+              <Title>Support</Title>
               <List>
                 <ListItem>
-                  <Link to="/">Home</Link>
+                  <Link to="/">Help Center</Link>
                 </ListItem>
                 <ListItem>
-                  <Link to="/">Menu</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="/">Order</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="/">Delivery</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="/">Bookings</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="/">Settings</Link>
+                  <Link to="/">Safety Center</Link>
                 </ListItem>
               </List>
             </CenterItem>
             <CenterItem>
-              <Title>Home</Title>
+              <Title>Legal</Title>
               <List>
                 <ListItem>
-                  <Link to="/">Home</Link>
+                  <Link to="/">Cookies Policy</Link>
                 </ListItem>
                 <ListItem>
-                  <Link to="/">Menu</Link>
+                  <Link to="/">Privacy Policy</Link>
                 </ListItem>
                 <ListItem>
-                  <Link to="/">Order</Link>
+                  <Link to="/">Terms of Service</Link>
                 </ListItem>
                 <ListItem>
-                  <Link to="/">Delivery</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="/">Bookings</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="/">Settings</Link>
+                  <Link to="/">Dispute resolution</Link>
                 </ListItem>
               </List>
             </CenterItem>
@@ -209,12 +188,12 @@ const Footer = () => {
             <ul>
               <li>
                 <Link to="/">
-                  <img alt="" src="./Images/Group.png" />
+                  <img alt="" src="./images/Group.png" />
                 </Link>
               </li>
               <li>
                 <Link to="/">
-                  <img alt="" src="./Images/Layer 2.png" />
+                  <img alt="" src="./images/Layer2.png" />
                 </Link>
               </li>
             </ul>
