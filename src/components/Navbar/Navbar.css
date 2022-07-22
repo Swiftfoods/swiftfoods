@@ -5,7 +5,7 @@
   box-shadow: 10px 5px 15px #e7e7eb;
 }
 
-.navbar a {
+.navbar ul a {
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
@@ -14,8 +14,9 @@
   transition: all 0.3s ease-in-out;
 }
 
-.navbar a:hover,
-.navbar a:focus {
+.navbar ul a:hover,
+.navbar ul a:focus {
   opacity: 1;
+  /* border-bottom: 5px; */
   border-bottom: 1px solid #000;
 }
