@@ -8,6 +8,7 @@ import {
 } from "./pages";
 import { Navbar, Footer } from "./components";
 
+
 function App() {
   const pathname = window.location.pathname;
   console.log(pathname);
