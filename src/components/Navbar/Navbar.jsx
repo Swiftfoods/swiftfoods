@@ -42,7 +42,7 @@ const Navbar = () => {
               <Link to="/contactus">Contact Us</Link>
             </li>
             <li>
-              <Link to="/mamaputin">Menu</Link>
+              <Link to="/restaurantmenu">Menu</Link>
             </li>
           </ul>
         </nav>

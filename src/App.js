@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, UserRegister, RestaurantMenu, Restaurants } from "./pages";
+import { Home, UserRegister, RestaurantMenu, Restaurants,  } from "./pages";
 import { Navbar, Footer } from "./components";
+
 
 function App() {
   const pathname = window.location.pathname;
