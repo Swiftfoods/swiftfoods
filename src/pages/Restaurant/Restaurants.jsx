@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
 
-            <img src="./Images/restaurant-head.png" alt="" />
+            <img src="./images/restaurant-head.png" alt="" />
           </div>
           <div className="search-rest">
             <h3 id="search-text">Let's find something delicious for you</h3>
@@ -84,8 +84,8 @@ const RestaurantMenu = () => {
           </div>
           <h4>Order on The Go</h4>
           <div className="rest-footer">
-            <img src="./Images/phone-img.png" alt="" />
-            <img src="./Images/laptop-img.png" alt="" />
+            <img src="./images/phone-img.png" alt="" />
+            <img src="./images/laptop-img.png" alt="" />
           </div>
         </div>
       )}
