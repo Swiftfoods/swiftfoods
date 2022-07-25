@@ -1,9 +1,86 @@
 .label {
-  font-family: "Inter";
+  margin-bottom: 6px;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
-  font-size: 17px;
-  line-height: 21px;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  letter-spacing: 0.02em;
+
+  /* Text color */
+
+  color: #1e1e1e;
+
+  opacity: 0.7;
+}
+
+.label-check {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  /* Text color */
+
+  color: #1e1e1e;
+}
+
+.check-con {
+  border: none;
+  width: 20px;
+  height: 20px;
+  border: 0.5px solid #4ba90a;
+  color: #4ba90a;
+  accent-color: #4ba90a;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4ba90a;
+  content: "\f046";
+}
+
+input[type="checkbox"]:checked:before {
+  content: "\f046";
+}
+
+.fcon {
+  width: 435px;
+
+  @media screen and (max-width: 1024px) {
+    width: 380px;
+  }
+
+  @media screen and (max-width: 890px) {
+    width: 300px;
+  }
+}
+
+.sign {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
   color: #1e1e1e;
   opacity: 0.7;
+}
+
+.dont {
+  // margin-left: 50px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1e1e1e;
+
+  opacity: 0.7;
+
+  a {
+    color: #4ba90a;
+  }
 }
