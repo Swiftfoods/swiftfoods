@@ -67,15 +67,9 @@ const RestaurantMenu = () => {
           </div>
 
           <div className="restaurant-row">
-            {loading ? (
-              <div>Loading...</div>
-            ) : error ? (
-              <div>{error}</div>
-            ) : (
-              restaurants.map((restaurant) => (
-                <RestaurantCard key={restaurant.id} {...restaurant} />
-              ))
-            )}
+            {restaurants.map((restaurant) => (
+              <RestaurantCard key={restaurant.id} {...restaurant} />
+            ))}
           </div>
           <div className="rest-view-more">
             <h5>View more &gt; &gt; &gt; &gt; </h5>
