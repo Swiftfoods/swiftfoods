@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import styled from "styled-components";
-import { FormInput, Button } from "../../components";
+import { FormInput, Button, FormCheck } from "../../components";
 import { register } from "../../actions/userActions";
 import "react-toastify/dist/ReactToastify.css";
+
+import "./user.scss";
 
 const Left = styled.div`
   flex: 1;
@@ -28,7 +30,9 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: start;
   margin-left: 50px;
+  margin-right: auto;
   margin-top: 70px;
 `;
 
@@ -40,6 +44,7 @@ const Title = styled.h1`
   font-size: 40px;
   line-height: 48px;
   color: #1e1e1e;
+  text-align: left;
 `;
 
 const UserRegister = () => {
@@ -55,7 +60,11 @@ const UserRegister = () => {
   const navigate = useNavigate();
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, userInfo } = userRegister;
+  const { loading, error, userInfo, success } = userRegister;
+
+  console.log(error);
+  console.log(success);
+  console.log(userInfo);
 
   const redirect = window.location.search
     ? window.location.search.split("=")[1]
@@ -70,14 +79,12 @@ const UserRegister = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    //Check if password and confirm password match
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
-      toast("Passwords do not match");
-      return;
+    if (error) {
+      toast.error(error);
+    } else if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
     } else {
-      setMessage(null);
-      // toast("Registration successful");
+      toast.success("Login Successful");
       dispatch(register(first_name, last_name, email, phone, password));
     }
   };
@@ -90,11 +97,12 @@ const UserRegister = () => {
           <ImgContainer />
         </Left>
         <Right>
-          <FormContainer>
-            <Title>Sign Up</Title>
+          <FormContainer className="fcon">
+            <Title className="w-10/12 text-left">Sign Up</Title>
             <form onSubmit={submitHandler}>
               <FormInput
                 label="First Name"
+                labelClass={"label"}
                 id="first_name"
                 type="text"
                 placeholder="First Name"
@@ -104,6 +112,7 @@ const UserRegister = () => {
 
               <FormInput
                 label="Last Name"
+                labelClass={"label"}
                 id="last_name"
                 type="text"
                 placeholder="Last Name"
@@ -113,6 +122,7 @@ const UserRegister = () => {
 
               <FormInput
                 label="Email"
+                labelClass={"label"}
                 id="email"
                 type="email"
                 placeholder="Email"
@@ -122,6 +132,7 @@ const UserRegister = () => {
 
               <FormInput
                 label="Phone"
+                labelClass={"label"}
                 id="phone"
                 type="text"
                 placeholder="Phone"
@@ -131,6 +142,7 @@ const UserRegister = () => {
 
               <FormInput
                 label="Password"
+                labelClass={"label"}
                 id="password"
                 type="password"
                 placeholder="Password"
@@ -140,6 +152,7 @@ const UserRegister = () => {
 
               <FormInput
                 label="Confirm Password"
+                labelClass={"label"}
                 id="confirmPassword"
                 type="password"
                 placeholder="Confirm Password"
@@ -147,15 +160,30 @@ const UserRegister = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
 
+              <FormCheck
+                label="Yes, i have read and accept all Swiftfoods terms and conditions."
+                labelClass={"label-check"}
+                id="agree"
+                type="checkbox"
+                inputClass={"check-con"}
+                // value={message}
+                // onChange={(e) => setMessage(e.target.value)}
+              />
+
               <Button variant="primary" type="submit" className="btn-primary">
                 Sign Up
               </Button>
             </form>
-          </FormContainer>
 
-          <div className="text-center">
-            <Link to="/login">Already have an account?</Link>
-          </div>
+            <div className="text-center mt-24 w-full dont">
+              <p className="text-primary text-center ">
+                Already have an account?
+                <Link to="/login" className="ml-1">
+                  Sign In
+                </Link>
+              </p>
+            </div>
+          </FormContainer>
         </Right>
       </div>
     </div>

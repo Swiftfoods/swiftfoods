@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="ml-8 mr-16 lg:mr-28">
           <Link to="/">
             <img
-              className="logo ml-8 mr-16 lg:mr-28"
+              className="logo mr-16 lg:mr-28"
               src="./images/Logo.png"
               alt="Logo"
             />
@@ -54,10 +54,10 @@ const Navbar = () => {
               <Link to="/cart">Cart</Link>
             </li>
             <li>
-              <Link to="/contactus">Contact Us</Link>
+              <Link to="/restaurants">Restaurants</Link>
             </li>
             <li>
-              <Link to="/restaurantmenu">Menu</Link>
+              <Link to="/contact">Contact Us</Link>
             </li>
           </ul>
         </nav>

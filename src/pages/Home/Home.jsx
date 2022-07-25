@@ -66,14 +66,17 @@ const Home = () => {
         <div className="left_a mt-20">
           <img src="./images/Logo.png" alt="" />
           <h1 className="pl-3 title mt-2.5">Tasty Food,Speedy Delivery</h1>
-          <div className="w-52 ml-3 mt-5 pl-9 pr-6 py-4 bg-orange-600 rounded-xl text-white">
-            <Link to="/login.html" className=" flex items-center text-lg">
-              Order now
-              <span className="mt-1">
-                <HiArrowRight className="w-10" />
-              </span>
-            </Link>
-          </div>
+          <Link
+            to="/"
+            className="w-52 ml-3 mt-5 pl-9 pr-6 py-4 bg-orange-600 rounded-xl text-white flex"
+          >
+            {/* <p className=" flex items-center text-lg"> */}
+            Order now
+            <span className="mt-1">
+              <HiArrowRight className="w-10" />
+            </span>
+            {/* </p> */}
+          </Link>
         </div>
         <ImgContainer></ImgContainer>
       </section>

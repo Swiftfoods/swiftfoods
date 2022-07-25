@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 import "./footer.css";
 
 const FooterCon = styled.footer`
-  background-color: #a6a6a6;
+  background-color: #d9d9d9;
   font-family: "Montserrat", sans-serif;
 `;
 
@@ -27,14 +28,6 @@ const Logo = styled.div`
   justify-content: center;
 `;
 
-const LogoText = styled.span`
-  margin-left: 10px;
-`;
-
-const Desc = styled.p`
-  margin: 20px 0px;
-`;
-
 const SocialContainer = styled.div`
   display: flex;
 `;
@@ -43,12 +36,17 @@ const SocialIcon = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: white;
-  background-color: #${(props) => props.color};
+  color: black;
+  ${"" /* background-color: #${(props) => props.color}; */}
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 20px;
+  background: #c3c3c3;
+  ${
+    "" /* opacity: 0.1;
+  z-index: 1; */
+  }
 `;
 
 const Center = styled.div`
@@ -113,6 +111,16 @@ const ContactItem = styled.div`
 
 const Payment = styled.img`
   width: 50%;
+`;
+
+const Text = styled.p`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  font-feature-settings: "salt" on, "liga" off;
+  color: #1e1e1e;
 `;
 
 const Footer = () => {
@@ -198,6 +206,30 @@ const Footer = () => {
               </li>
             </ul>
           </Right>
+        </Container>
+        <Container className="w-full px-40 pb-3">
+          <div className="flex justify-between w-full items-center">
+            <Text className="flex items-center">
+              © 2022 Swiftfood.ng All rights reserved
+            </Text>
+            <SocialContainer className="">
+              <SocialIcon color="#ff9800">
+                <Link to="/" className="z-10">
+                  <FaInstagram />
+                </Link>
+              </SocialIcon>
+              <SocialIcon color="#00bcd4">
+                <Link to="/">
+                  <FaTwitter />
+                </Link>
+              </SocialIcon>
+              <SocialIcon>
+                <Link to="/">
+                  <FaYoutube />
+                </Link>
+              </SocialIcon>
+            </SocialContainer>
+          </div>
         </Container>
       </FooterCon>
     </div>

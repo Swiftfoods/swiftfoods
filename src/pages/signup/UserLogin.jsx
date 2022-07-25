@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Form } from "react-bootstrap";
+import { FcGoogle } from "react-icons/fc";
+import { SiFacebook } from "react-icons/si";
 import { ToastContainer, toast } from "react-toastify";
 import styled from "styled-components";
-import { FormInput, Button } from "../../components";
+import { FormInput, Button, FormCheck } from "../../components";
 import { login } from "../../actions/userActions";
 import "react-toastify/dist/ReactToastify.css";
+
+import "./user.scss";
 
 const Left = styled.div`
   flex: 1;
@@ -45,13 +48,12 @@ const Title = styled.h1`
 const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+  const { loading, error, userInfo, success } = userLogin;
 
   const redirect = window.location.search
     ? window.location.search.split("=")[1]
@@ -66,7 +68,11 @@ const UserLogin = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    // toast("Registration successful");
+    if (error) {
+      toast.error(error);
+    } else if (success) {
+      toast.success("Login Successful");
+    }
     dispatch(login(email, password));
   };
 
@@ -83,6 +89,7 @@ const UserLogin = () => {
             <form onSubmit={submitHandler}>
               <FormInput
                 label="Email"
+                labelClass={"label"}
                 id="email"
                 type="email"
                 placeholder="Email"
@@ -92,11 +99,21 @@ const UserLogin = () => {
 
               <FormInput
                 label="Password"
+                labelClass={"label"}
                 id="password"
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <FormCheck
+                label="Remember me"
+                labelClass={"label-check"}
+                id="agree"
+                type="checkbox"
+                inputClass={"check-con"}
+                checkClass={"items-center"}
               />
 
               <Button variant="primary" type="submit" className="btn-primary">
@@ -105,8 +122,25 @@ const UserLogin = () => {
             </form>
           </FormContainer>
 
-          <div className="text-center">
-            <Link to="/login">Don't have an account? Sign up</Link>
+          <div className="flex flex-col justify-center items-center mt-40">
+            <p className="sign">Sign up with</p>
+            <div className="social-login flex items-center mt-6">
+              <Link to="/">
+                <FcGoogle className="text-3xl" />
+              </Link>
+              <Link to="/">
+                <SiFacebook className="text-2xl text-sky-500 ml-5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center w-full mt-24 dont">
+            <p className="text-primary">
+              Don't have an account?
+              <Link to="/userregister" className="ml-1">
+                Sign up
+              </Link>
+            </p>
           </div>
         </Right>
       </div>
