@@ -44,6 +44,12 @@ const Button = styled.button`
   background: #4ba90a;
   border-radius: 10px;
   color: white;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #fffefe;
 `;
 
 const Newsletter = () => {
@@ -52,7 +58,7 @@ const Newsletter = () => {
       <Title>Got Something to ask?</Title>
       <Desc>Send us an Email</Desc>
       <InputContainer>
-        <Input placeholder="Yyourname@email.com" />
+        <Input placeholder="yourname@email.com" />
         <Button>Send</Button>
       </InputContainer>
     </Container>
