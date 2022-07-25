@@ -5,9 +5,10 @@ import {
   RestaurantMenu,
   Restaurants,
   UserLogin,
+  Mamaputin,
+  Contact,
 } from "./pages";
 import { Navbar, Footer } from "./components";
-
 
 function App() {
   const pathname = window.location.pathname;
@@ -29,6 +30,8 @@ function App() {
         <Route path="/login" element={<UserLogin />} />
         <Route path="/restaurants" element={<Restaurants />} />
         <Route path="/restaurantmenu" element={<RestaurantMenu />} />
+        <Route path="/mamaputin" element={<Mamaputin />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       {pathname !== "/login" && pathname !== "/userregister" ? (
         <Footer />
