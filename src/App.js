@@ -7,6 +7,7 @@ import {
   UserLogin,
   Mamaputin,
   Contact,
+  Cart,
 } from "./pages";
 import { Navbar, Footer } from "./components";
 
@@ -31,7 +32,8 @@ function App() {
         <Route path="/restaurants" element={<Restaurants />} />
         <Route path="/restaurantmenu" element={<RestaurantMenu />} />
         <Route path="/mamaputin" element={<Mamaputin />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contactus" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       {pathname !== "/login" && pathname !== "/userregister" ? (
         <Footer />
