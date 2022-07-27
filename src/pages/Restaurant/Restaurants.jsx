@@ -52,7 +52,8 @@ const RestaurantMenu = () => {
                       <input
                         type="search"
                         id="search"
-                        value="Search restaurant"
+                        placeholder="Search for a restaurant"
+                        value=""
                         onChange={() => searchHandler}
                       />
                     </td>

@@ -9,3 +9,4 @@ export { default as FormInput } from "./FormElements/FormInput";
 export { default as FormCheck } from "./FormElements/CustomCheck";
 export { default as Rating } from "./Rating";
 export { default as Loader } from "./Loader";
+export { default as MealCard } from "./MealCard/MealCard";

@@ -5,7 +5,7 @@ import {
   RestaurantMenu,
   Restaurants,
   UserLogin,
-  Mamaputin,
+  Meal,
   Contact,
   Cart,
 } from "./pages";
@@ -31,7 +31,7 @@ function App() {
         <Route path="/login" element={<UserLogin />} />
         <Route path="/restaurants" element={<Restaurants />} />
         <Route path="/restaurantmenu" element={<RestaurantMenu />} />
-        <Route path="/mamaputin" element={<Mamaputin />} />
+        <Route path="/meal" element={<Meal />} />
         <Route path="/contactus" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

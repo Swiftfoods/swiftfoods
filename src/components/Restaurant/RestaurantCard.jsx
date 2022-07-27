@@ -11,7 +11,7 @@ const RestaurantCard = ({ brandName, rating, image }) => {
           <h4>{brandName}</h4>
           <p>100 London street, 44018 Mac, No</p>
           <div className="rest-view flex items-center justify-between">
-            <Link to="/mamaputin" className="view">
+            <Link to="/meal" className="view">
               View
             </Link>
             <div className="">
